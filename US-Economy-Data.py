@@ -102,7 +102,7 @@ with col4:
 
     st.header("Unemployment Rate by Race\n", divider="gray")
 
-    un1, un2, un3, un4, col4 = st.columns(4)
+    un1, un2, un3, un4 = st.columns(4)
 
     with un1:
         st.metric(label="White Unemployment", value=white_un, border=True)
