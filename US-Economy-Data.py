@@ -13,7 +13,9 @@ Unemployment = pd.read_excel("Unemployment Claims.xlsx")
 # Page Configuration
 st.set_page_config(layout="wide")
 
-st.title("Trump Economy Tracker")
+st.markdown("<h1 style='text-align: center;'>Trump Economy Tracker</h1>", unsafe_allow_html=True)
+
+st.write("")
 
 col1, col2 = st.columns(2)
 
@@ -93,7 +95,27 @@ with col3:
                   y_label='Unemployment Rate')
 
 with col4:
+    white_un = unemployment_by_race['White Unemployment Rate'].iloc[-1]
+    black_un = unemployment_by_race['Black Unemployment Rate'].iloc[-1]
+    hispanic_un = unemployment_by_race['Hispanic Unemployment Rate'].iloc[-1]
+    asian_un = unemployment_by_race['Asian Unemployment Rate'].iloc[-1]
+
     st.header("Unemployment Rate by Race\n", divider="gray")
+
+    un1, un2, un3, un4, col4 = st.columns(4)
+
+    with un1:
+        st.metric(label="White Unemployment", value=white_un, border=True)
+
+    with un2:
+        st.metric(label="Black Unemployment", value=black_un, border=True)
+
+    with un3:
+        st.metric(label="Hispanic Unemployment", value=hispanic_un, border=True)
+
+    with un4:
+        st.metric(label="Asian Unemployment", value=asian_un, border=True)
+
     st.line_chart(unemployment_by_race, x='date',
                   y=['White Unemployment Rate', 'Black Unemployment Rate', 'Hispanic Unemployment Rate',
                      'Asian Unemployment Rate'], x_label='Date', y_label='Unemployment Rate')
