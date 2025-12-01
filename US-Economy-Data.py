@@ -14,7 +14,7 @@ Unemployment = pd.read_excel("Unemployment Claims.xlsx")
 st.set_page_config(layout="wide")
 
 
-st.title("Trump Economy Tracker")
+st.markdown("<h1 style='text-align: center;'>Trump Economy Tracker</h1>", unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
