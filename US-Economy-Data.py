@@ -85,8 +85,6 @@ col3, col4 = st.columns(2)
 unemployment = monthly[['date', 'Unemployment Rate', 'U6 Unemployment Rate']]
 unemployment_by_race = monthly[['date', 'White Unemployment Rate', 'Black Unemployment Rate', 'Hispanic Unemployment Rate', 'Asian Unemployment Rate']]
 
-st.header("Unemployment\n", divider="gray")
-
 with col3:
     st.header("Total Unemployment Rate\n", divider="gray")
     st.line_chart(unemployment, x='date', y=['Unemployment Rate', 'U6 Unemployment Rate'], x_label='Date', y_label='Unemployment Rate')
