@@ -32,7 +32,7 @@ with col1:
     st.header("Inflation\n", divider="gray")
     st.write("""
     Inflation is the change in prices over time. The inflation rate is calculated by comparing the prices of items now against the same time from the prior year.
-    For example, the Inflation rate for October 2025 is calculated by seeing the change in prices from October 2024 to October 2025. Prices are calculated via the CPI or PPI metric.
+    For example, the Inflation rate for October 2025 is calculated by seeing the change in prices from October 24th. to October 25th. Prices are calculated via the CPI or PPI metric.
     
     The Consumer Price Index (CPI) and the Producer Price Index (PPI) are both key indicators of inflation, but they measure price changes from different perspectives in the economy. 
     The CPI focuses on the prices consumers pay, while the PPI tracks the prices producers receive for their goods and services at earlier stages of production.
@@ -78,3 +78,19 @@ with col2:
                   border=True)
 
     st.line_chart(imports, x='date', y=['Imports % Change', 'Exports % Change'], x_label='Date', y_label='% Change')
+
+
+col3, col4 = st.columns(2)
+
+unemployment = monthly[['date', 'Unemployment Rate', 'U6 Unemployment Rate']]
+unemployment_by_race = monthly[['date', 'White Unemployment Rate', 'Black Unemployment Rate', 'Hispanic Unemployment Rate', 'Asian Unemployment Rate']]
+
+st.header("Unemployment\n", divider="gray")
+
+with col3:
+    st.header("Total Unemployment Rate\n", divider="gray")
+    st.line_chart(unemployment, x='date', y=['Unemployment Rate', 'U6 Unemployment Rate'], x_label='Date', y_label='Unemployment Rate')
+
+with col4:
+    st.header("Unemployment Rate by Race\n", divider="gray")
+    st.line_chart(unemployment_by_race, x='date', y=['White Unemployment Rate', 'Black Unemployment Rate', 'Hispanic Unemployment Rate', 'Asian Unemployment Rate'], x_label='Date', y_label='Unemployment Rate')
