@@ -19,7 +19,7 @@ imports = monthly[['date', 'Imports', 'Exports', 'Imports % Change', 'Exports % 
 
 
 # ================== HEADER ==================
-st.title("Trump Economy Tracker")
+st.title("Economy Tracker: 2009 - Present")
 
 st.markdown("---")
 
