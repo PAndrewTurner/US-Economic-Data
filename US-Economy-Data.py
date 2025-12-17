@@ -64,6 +64,9 @@ with inflation_right:
 
 st.markdown("---")
 
+st.subheader("Job Creation")
+
+
 # ================== UNEMPLOYMENT ==================
 st.subheader("Unemployment")
 
@@ -108,6 +111,8 @@ with u_row2_left:
     st.line_chart(unemployment_by_race, x='date',
                  y=['White Unemployment Rate', 'Black Unemployment Rate', 'Hispanic Unemployment Rate',
                     'Asian Unemployment Rate'], x_label='Date', y_label='Unemployment Rate')
+
+
 
 with u_row2_right:
     um1, um2 = st.columns(2)
