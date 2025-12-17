@@ -6,6 +6,8 @@ cutoff_date = pd.to_datetime('2009-01-01')
 
 monthly = pd.read_excel("Monthly Economic Data.xlsx")
 
+most_recent_dt = monthly['date'].iloc[-1]
+
 Unemployment = pd.read_excel("Unemployment Claims.xlsx")
 
 monthly['date'] = pd.to_datetime(monthly['date'])
@@ -78,7 +80,8 @@ with jc_row_left:
     st.line_chart(jc, x='date', y='Jobs Added', x_label='Date', y_label='Jobs Added')
 
 with jc_row_right:
-    st.line_chart(jc, x='date', y='Total Employment', x_label='Date', y_label='Total Employment')
+    jobs_added = jc['Jobs Added'].iloc[-1]
+    st.metric(label="Jobs Added: " + most_recent_dt, value=jobs_added, border=True)
 
 
 unemployment = monthly[['date', 'Unemployment Rate', 'U6 Unemployment Rate']]
