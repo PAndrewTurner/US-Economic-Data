@@ -74,6 +74,13 @@ jc = monthly[['date', 'Total Employment', 'Jobs Added']]
 
 jc_row_left, jc_row_right = st.columns([2, 1], gap="large")
 
+with jc_row_left:
+    st.line_chart(jc, x='date', y='Jobs Added', x_label='Date', y_label='Jobs Added')
+
+with jc_row_right:
+    st.line_chart(jc, x='date', y='Total Employment', x_label='Date', y_label='Total Employment')
+
+
 unemployment = monthly[['date', 'Unemployment Rate', 'U6 Unemployment Rate']]
 unemployment_by_race = monthly[
     ['date', 'White Unemployment Rate', 'Black Unemployment Rate', 'Hispanic Unemployment Rate',
