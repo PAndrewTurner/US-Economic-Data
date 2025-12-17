@@ -70,6 +70,10 @@ st.subheader("Job Creation")
 # ================== UNEMPLOYMENT ==================
 st.subheader("Unemployment")
 
+jc = monthly[['date', 'Total Employment', 'Jobs Added']]
+
+jc_row_left, jc_row_right = st.columns([2, 1], gap="large")
+
 unemployment = monthly[['date', 'Unemployment Rate', 'U6 Unemployment Rate']]
 unemployment_by_race = monthly[
     ['date', 'White Unemployment Rate', 'Black Unemployment Rate', 'Hispanic Unemployment Rate',
